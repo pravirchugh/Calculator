@@ -1,5 +1,8 @@
 .numberBtn {
   border: 2px solid black;
-  height: 49%;
-  
+  background-color: rgb(35, 60, 111);
+  color: white;
+}
+.numberBtn:hover {
+    background-color: grey;
 }
