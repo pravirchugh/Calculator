@@ -11,6 +11,10 @@ function App() {
 
   const [output, setOutput] = useState(0);
 
+  function numberClick(value){
+    alert(value);
+  }
+
   return (
     <>
       <header>
@@ -58,14 +62,14 @@ function App() {
 
           
           <div className="buttonRow">
-            <div className="buttonElement">
+            <div className="buttonElement" onClick={() => numberClick(7)}>
               <NumberButton val="7"></NumberButton>
             </div>
            
-            <div className="buttonElement">
+            <div className="buttonElement" onClick={() => numberClick(8)}>
               <NumberButton val="8"></NumberButton>
             </div>
-            <div className="buttonElement">
+            <div className="buttonElement" onClick={() => numberClick(9)}>
               <NumberButton val="9"></NumberButton>
             </div>
             <div className="buttonElement">
@@ -75,14 +79,14 @@ function App() {
 
 
           <div className="buttonRow">
-            <div className="buttonElement">
+            <div className="buttonElement" onClick={() => numberClick(4)}>
               <NumberButton val="4"></NumberButton>
             </div>
            
-            <div className="buttonElement">
+            <div className="buttonElement" onClick={() => numberClick(5)}>
               <NumberButton val="5"></NumberButton>
             </div>
-            <div className="buttonElement">
+            <div className="buttonElement" onClick={() => numberClick(6)}>
               <NumberButton val="6"></NumberButton>
             </div>
             <div className="buttonElement">
@@ -91,14 +95,14 @@ function App() {
           </div>
 
           <div className="buttonRow">
-            <div className="buttonElement">
+            <div className="buttonElement" onClick={() => numberClick(1)}>
               <NumberButton val="1"></NumberButton>
             </div>
            
-            <div className="buttonElement">
+            <div className="buttonElement" onClick={() => numberClick(2)}>
               <NumberButton val="2"></NumberButton>
             </div>
-            <div className="buttonElement">
+            <div className="buttonElement" onClick={() => numberClick(3)}>
               <NumberButton val="3"></NumberButton>
             </div>
             <div className="buttonElement">
@@ -107,7 +111,7 @@ function App() {
           </div>
 
           <div className="buttonRow">
-            <div className="doubleButtonElement">
+            <div className="doubleButtonElement" onClick={() => numberClick(0)}>
               <NumberButton val="0"></NumberButton>
             </div>
            
