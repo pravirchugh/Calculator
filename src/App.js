@@ -4,8 +4,12 @@ import React, {useState} from 'react';
 import NumberButton from './components/NumberButton';
 import './App.css';
 
+let output = 0;
 
 function App() {
+
+  const [output, setOutput] = useState(0);
+
   return (
     <>
       <header>
@@ -14,7 +18,7 @@ function App() {
       </header>
       <body>
         <div className="outputWindow">
-          <p className="outputText">Output Window...</p>
+          <p className="outputText" style={{textAlign: "center"}}>{output}</p>
         </div>
 
         <div className="buttons">
