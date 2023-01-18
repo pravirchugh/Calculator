@@ -10,8 +10,15 @@ header {
 .buttons {
   display: flex;
   flex-direction: column;
+  border-bottom: 2px solid black;
 }
 .buttonRow {
   display: flex;
   flex-direction: row;
+}
+.buttonElement {
+  width: 25%;
+}
+.doubleButtonElement {
+  width: 50%;
 }

@@ -4,7 +4,11 @@ import './NumberButton.css'
 function NumberButton(props){
     return (
         <>
-            <button className="numberBtn">{props.val}</button>
+            <div className="numberBtn">
+
+                <p style={{textAlign: "center"}}>{props.val}</p>
+
+            </div>
         </>
     )
 }
