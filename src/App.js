@@ -107,14 +107,14 @@ function App() {
           </div>
 
           <div className="buttonRow">
-            <div className="buttonElement">
+            <div className="doubleButtonElement">
               <NumberButton val="0"></NumberButton>
             </div>
            
             <div className="buttonElement">
               <OperationButton val="."></OperationButton>
             </div>
-            <div className="doubleButtonElement">
+            <div className="buttonElement">
               {/* Has twice the width of the other buttons */}
               <OperationButton val="="></OperationButton>
             </div>
