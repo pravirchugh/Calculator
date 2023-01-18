@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import React, {useState} from 'react';
 
 import NumberButton from './components/NumberButton';
+import OperationButton from './components/OperationButton';
 import './App.css';
 
 let output = 0;
@@ -25,33 +26,33 @@ function App() {
 
           <div className="buttonRow">
             <div className="buttonElement">
-              <NumberButton val="+/-"></NumberButton>
+              <OperationButton val="+/-"></OperationButton>
             </div>
            
             <div className="buttonElement">
-              <NumberButton val="%"></NumberButton>
+              <OperationButton val="%"></OperationButton>
             </div>
             <div className="buttonElement">
-              <NumberButton val="C"></NumberButton>
+              <OperationButton val="C"></OperationButton>
             </div>
             <div className="buttonElement">
-              <NumberButton val="⌫"></NumberButton>
+              <OperationButton val="⌫"></OperationButton>
             </div>
           </div>
 
           <div className="buttonRow">
             <div className="buttonElement">
-              <NumberButton val="1/x"></NumberButton>
+              <OperationButton val="1/x"></OperationButton>
             </div>
            
             <div className="buttonElement">
-              <NumberButton val="x^2"></NumberButton>
+              <OperationButton val="x^2"></OperationButton>
             </div>
             <div className="buttonElement">
-              <NumberButton val="√"></NumberButton>
+              <OperationButton val="√"></OperationButton>
             </div>
             <div className="buttonElement">
-              <NumberButton val="/"></NumberButton>
+              <OperationButton val="/"></OperationButton>
             </div>
           </div>
 
@@ -68,7 +69,7 @@ function App() {
               <NumberButton val="9"></NumberButton>
             </div>
             <div className="buttonElement">
-              <NumberButton val="*"></NumberButton>
+              <OperationButton val="*"></OperationButton>
             </div>
           </div>
 
@@ -85,7 +86,7 @@ function App() {
               <NumberButton val="6"></NumberButton>
             </div>
             <div className="buttonElement">
-              <NumberButton val="-"></NumberButton>
+              <OperationButton val="-"></OperationButton>
             </div>
           </div>
 
@@ -101,7 +102,7 @@ function App() {
               <NumberButton val="3"></NumberButton>
             </div>
             <div className="buttonElement">
-              <NumberButton val="+"></NumberButton>
+              <OperationButton val="+"></OperationButton>
             </div>
           </div>
 
@@ -111,11 +112,11 @@ function App() {
             </div>
            
             <div className="buttonElement">
-              <NumberButton val="."></NumberButton>
+              <OperationButton val="."></OperationButton>
             </div>
             <div className="doubleButtonElement">
               {/* Has twice the width of the other buttons */}
-              <NumberButton val="="></NumberButton>
+              <OperationButton val="="></OperationButton>
             </div>
             
           </div>
