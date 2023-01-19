@@ -5,14 +5,34 @@ import NumberButton from './components/NumberButton';
 import OperationButton from './components/OperationButton';
 import './App.css';
 
-let output = 0;
-
 function App() {
 
-  const [output, setOutput] = useState(0);
+  let [output, setOutput] = useState(0);
 
   function numberClick(value){
-    alert(value);
+    setOutput((output * 10) + value);
+  }
+  function clearOutput() {
+    setOutput(0);
+  }
+  function invertOutput() {
+    setOutput(output * -1);
+  }
+  function backspaceOutput() {
+    let text = output.toString();
+
+    if(text.length == 1 && output >= 0){
+      setOutput(0);
+    } else if(output <= 0 && text.length == 2){
+      setOutput(0);
+    } else {
+      // delete last character
+      text = text.slice(0, text.length - 1);
+      setOutput(parseInt(text));
+    }
+  }
+  function reciprocalOutput() {
+    setOutput(1 / output);
   }
 
   return (
@@ -29,23 +49,23 @@ function App() {
         <div className="buttons">
 
           <div className="buttonRow">
-            <div className="buttonElement">
+            <div className="buttonElement" onClick={() => invertOutput()}>
               <OperationButton val="+/-"></OperationButton>
             </div>
            
             <div className="buttonElement">
               <OperationButton val="%"></OperationButton>
             </div>
-            <div className="buttonElement">
+            <div className="buttonElement" onClick={() => clearOutput()}>
               <OperationButton val="C"></OperationButton>
             </div>
-            <div className="buttonElement">
+            <div className="buttonElement" onClick={() => backspaceOutput()}>
               <OperationButton val="⌫"></OperationButton>
             </div>
           </div>
 
           <div className="buttonRow">
-            <div className="buttonElement">
+            <div className="buttonElement" onClick={() => reciprocalOutput()}>
               <OperationButton val="1/x"></OperationButton>
             </div>
            
