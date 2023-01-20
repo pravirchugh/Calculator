@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { clearOutput } from './components/Utilities.js';
+import { invertOutput, rootOutput, squareOutput, reciprocalOutput } from './components/Utilities.js';
 
 import NumberButton from './components/NumberButton';
 import OperationButton from './components/OperationButton';
@@ -13,7 +13,7 @@ function App() {
   function numberClick(value){
     setOutput((output * 10) + value);
   }
-  
+
   function backspaceOutput() {
     let text = output.toString();
     
@@ -27,15 +27,7 @@ function App() {
       setOutput(parseFloat(text));
     }
   }
-  function reciprocalOutput() {
-    setOutput(1 / output);
-  }
-  function squareOutput() {
-    setOutput(output * output);
-  }
-  function rootOutput() {
-    setOutput(Math.sqrt(output));
-  }
+  
 
   return (
     <>
@@ -51,14 +43,14 @@ function App() {
         <div className="buttons">
 
           <div className="buttonRow">
-            <div className="buttonElement" onClick={() => setOutput(1 / output)}>
+            <div className="buttonElement" onClick={() => setOutput(invertOutput())}>
               <OperationButton val="+/-"></OperationButton>
             </div>
            
             <div className="buttonElement">
               <OperationButton val="%"></OperationButton>
             </div>
-            <div className="buttonElement" onClick={() => setOutput(0)}>
+            <div className="buttonElement" onClick={() => setOutput(clearOutput())}>
               <OperationButton val="C"></OperationButton>
             </div>
             <div className="buttonElement" onClick={() => backspaceOutput()}>
@@ -67,14 +59,14 @@ function App() {
           </div>
 
           <div className="buttonRow">
-            <div className="buttonElement" onClick={() => reciprocalOutput()}>
+            <div className="buttonElement" onClick={() => setOutput(reciprocalOutput())}>
               <OperationButton val="1/x"></OperationButton>
             </div>
            
-            <div className="buttonElement" onClick={() => squareOutput()}>
+            <div className="buttonElement" onClick={() => setOutput(squareOutput())}>
               <OperationButton val="x^2"></OperationButton>
             </div>
-            <div className="buttonElement" onClick={() => rootOutput()}>
+            <div className="buttonElement" onClick={() => setOutput(rootOutput())}>
               <OperationButton val="√"></OperationButton>
             </div>
             <div className="buttonElement">
