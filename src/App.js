@@ -1,5 +1,5 @@
-import logo from './logo.svg';
 import React, {useState} from 'react';
+import { clearOutput } from './components/Utilities.js';
 
 import NumberButton from './components/NumberButton';
 import OperationButton from './components/OperationButton';
@@ -13,9 +13,7 @@ function App() {
   function numberClick(value){
     setOutput((output * 10) + value);
   }
-  function clearOutput() {
-    setOutput(0);
-  }
+  
   function invertOutput() {
     setOutput(output * -1);
   }
@@ -63,7 +61,7 @@ function App() {
             <div className="buttonElement">
               <OperationButton val="%"></OperationButton>
             </div>
-            <div className="buttonElement" onClick={() => clearOutput()}>
+            <div className="buttonElement" onClick={() => setOutput(clearOutput())}>
               <OperationButton val="C"></OperationButton>
             </div>
             <div className="buttonElement" onClick={() => backspaceOutput()}>
