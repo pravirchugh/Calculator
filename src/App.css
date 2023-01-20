@@ -22,3 +22,6 @@ header {
 .doubleButtonElement {
   width: 50%;
 }
+html {
+  background-image: linear-gradient(lightblue, darkblue);
+}
