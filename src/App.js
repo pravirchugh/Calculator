@@ -9,6 +9,7 @@ function App() {
 
   let [output, setOutput] = useState("0");
   let [operation, setOperation] = useState(" "); // use the space character as "no operation selected"
+  let [firstArgument, setFirstArgument] = useState("0");
 
   function numberClick(value){
     if((output + value)[0] == '0'){
@@ -35,7 +36,7 @@ function App() {
       setOutput(text);
     }
   }
-  
+
 
   return (
     <>
@@ -137,7 +138,7 @@ function App() {
               <NumberButton val="0"></NumberButton>
             </div>
            
-            <div className="buttonElement">
+            <div className="buttonElement" onClick={() => setOutput(output + ".")}>
               <NumberButton val="."></NumberButton>
             </div>
             <div className="buttonElement">
