@@ -7,24 +7,32 @@ import './App.css';
 
 function App() {
 
-  let [output, setOutput] = useState(0);
+  let [output, setOutput] = useState("0");
   let [operation, setOperation] = useState(" "); // use the space character as "no operation selected"
 
   function numberClick(value){
-    setOutput((output * 10) + value);
+    if((output + value)[0] == '0'){
+      setOutput((output + value).slice(1)); // checks for leading zero
+    } else {
+      setOutput(output + value);
+    }
+    
   }
 
   function backspaceOutput() {
-    let text = output.toString();
+    let text = output;
     
     if(text.length == 1 && output >= 0){
-      setOutput(0);
+      setOutput("0");
     } else if(output <= 0 && text.length == 2){
-      setOutput(0);
+      setOutput("0");
     } else {
       // delete last character
       text = text.slice(0, text.length - 1);
-      setOutput(parseFloat(text));
+      if(text[text.length - 1] == '.'){
+        text = text.slice(0, text.length - 1);
+      }
+      setOutput(text);
     }
   }
   
@@ -129,7 +137,7 @@ function App() {
               <NumberButton val="0"></NumberButton>
             </div>
            
-            <div className="buttonElement" onClick={() => setOutput(output + 0.0)}>
+            <div className="buttonElement">
               <NumberButton val="."></NumberButton>
             </div>
             <div className="buttonElement">
