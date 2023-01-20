@@ -36,7 +36,21 @@ function App() {
       setOutput(text);
     }
   }
+  
+  function operationClick(oper){
+    // to be implemented
+    setOperation(oper);
 
+    setFirstArgument(output);
+    
+    setOutput("0");
+    
+  }
+
+  function evaluate() {
+    // to be implemented
+
+  }
 
   return (
     <>
@@ -46,7 +60,7 @@ function App() {
       </header>
       <body>
         <div className="outputWindow">
-          <p className="outputText" style={{textAlign: "center"}}>{output}</p>
+          <p className="outputText" id="outputParagraph" style={{textAlign: "center"}}>{output}</p>
         </div>
 
         <div className="buttons">
@@ -78,7 +92,7 @@ function App() {
             <div className="buttonElement" onClick={() => setOutput(rootOutput(output))}>
               <OperationButton val="√"></OperationButton>
             </div>
-            <div className="buttonElement" onClick={() => setOperation("/")}>
+            <div className="buttonElement" onClick={() => operationClick("/")}>
               <OperationButton val="/"></OperationButton>
             </div>
           </div>
@@ -95,7 +109,7 @@ function App() {
             <div className="buttonElement" onClick={() => numberClick(9)}>
               <NumberButton val="9"></NumberButton>
             </div>
-            <div className="buttonElement" onClick={() => setOperation("*")}>
+            <div className="buttonElement" onClick={() => operationClick("*")}>
               <OperationButton val="*"></OperationButton>
             </div>
           </div>
@@ -112,7 +126,7 @@ function App() {
             <div className="buttonElement" onClick={() => numberClick(6)}>
               <NumberButton val="6"></NumberButton>
             </div>
-            <div className="buttonElement" onClick={() => setOperation("-")}>
+            <div className="buttonElement" onClick={() => operationClick("-")}>
               <OperationButton val="-"></OperationButton>
             </div>
           </div>
@@ -128,7 +142,7 @@ function App() {
             <div className="buttonElement" onClick={() => numberClick(3)}>
               <NumberButton val="3"></NumberButton>
             </div>
-            <div className="buttonElement" onClick={() => setOperation("+")}>
+            <div className="buttonElement" onClick={() => operationClick("+")}>
               <OperationButton val="+"></OperationButton>
             </div>
           </div>
@@ -141,7 +155,7 @@ function App() {
             <div className="buttonElement" onClick={() => setOutput(output + ".")}>
               <NumberButton val="."></NumberButton>
             </div>
-            <div className="buttonElement">
+            <div className="buttonElement" onClick={() => evaluate()}>
               {/* Has twice the width of the other buttons */}
               <OperationButton val="="></OperationButton>
             </div>
