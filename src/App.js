@@ -8,6 +8,7 @@ import './App.css';
 function App() {
 
   let [output, setOutput] = useState(0);
+  let [operation, setOperation] = useState(" "); // use the space character as "no operation selected"
 
   function numberClick(value){
     setOutput((output * 10) + value);
@@ -20,7 +21,7 @@ function App() {
   }
   function backspaceOutput() {
     let text = output.toString();
-
+    
     if(text.length == 1 && output >= 0){
       setOutput(0);
     } else if(output <= 0 && text.length == 2){
@@ -28,11 +29,17 @@ function App() {
     } else {
       // delete last character
       text = text.slice(0, text.length - 1);
-      setOutput(parseInt(text));
+      setOutput(parseFloat(text));
     }
   }
   function reciprocalOutput() {
     setOutput(1 / output);
+  }
+  function squareOutput() {
+    setOutput(output * output);
+  }
+  function rootOutput() {
+    setOutput(Math.sqrt(output));
   }
 
   return (
@@ -69,10 +76,10 @@ function App() {
               <OperationButton val="1/x"></OperationButton>
             </div>
            
-            <div className="buttonElement">
+            <div className="buttonElement" onClick={() => squareOutput()}>
               <OperationButton val="x^2"></OperationButton>
             </div>
-            <div className="buttonElement">
+            <div className="buttonElement" onClick={() => rootOutput()}>
               <OperationButton val="√"></OperationButton>
             </div>
             <div className="buttonElement">
