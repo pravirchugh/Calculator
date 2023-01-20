@@ -14,9 +14,6 @@ function App() {
     setOutput((output * 10) + value);
   }
   
-  function invertOutput() {
-    setOutput(output * -1);
-  }
   function backspaceOutput() {
     let text = output.toString();
     
@@ -54,14 +51,14 @@ function App() {
         <div className="buttons">
 
           <div className="buttonRow">
-            <div className="buttonElement" onClick={() => invertOutput()}>
+            <div className="buttonElement" onClick={() => setOutput(1 / output)}>
               <OperationButton val="+/-"></OperationButton>
             </div>
            
             <div className="buttonElement">
               <OperationButton val="%"></OperationButton>
             </div>
-            <div className="buttonElement" onClick={() => setOutput(clearOutput())}>
+            <div className="buttonElement" onClick={() => setOutput(0)}>
               <OperationButton val="C"></OperationButton>
             </div>
             <div className="buttonElement" onClick={() => backspaceOutput()}>
