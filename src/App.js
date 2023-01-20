@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { invertOutput, rootOutput, squareOutput, reciprocalOutput } from './components/Utilities.js';
+import { invertOutput, rootOutput, squareOutput, reciprocalOutput, clearOutput } from './components/Utilities.js';
 
 import NumberButton from './components/NumberButton';
 import OperationButton from './components/OperationButton';
@@ -43,7 +43,7 @@ function App() {
         <div className="buttons">
 
           <div className="buttonRow">
-            <div className="buttonElement" onClick={() => setOutput(invertOutput())}>
+            <div className="buttonElement" onClick={() => setOutput(invertOutput(output))}>
               <OperationButton val="+/-"></OperationButton>
             </div>
            
@@ -59,17 +59,17 @@ function App() {
           </div>
 
           <div className="buttonRow">
-            <div className="buttonElement" onClick={() => setOutput(reciprocalOutput())}>
+            <div className="buttonElement" onClick={() => setOutput(reciprocalOutput(output))}>
               <OperationButton val="1/x"></OperationButton>
             </div>
            
-            <div className="buttonElement" onClick={() => setOutput(squareOutput())}>
+            <div className="buttonElement" onClick={() => setOutput(squareOutput(output))}>
               <OperationButton val="x^2"></OperationButton>
             </div>
-            <div className="buttonElement" onClick={() => setOutput(rootOutput())}>
+            <div className="buttonElement" onClick={() => setOutput(rootOutput(output))}>
               <OperationButton val="√"></OperationButton>
             </div>
-            <div className="buttonElement">
+            <div className="buttonElement" onClick={() => setOperation("/")}>
               <OperationButton val="/"></OperationButton>
             </div>
           </div>
@@ -86,7 +86,7 @@ function App() {
             <div className="buttonElement" onClick={() => numberClick(9)}>
               <NumberButton val="9"></NumberButton>
             </div>
-            <div className="buttonElement">
+            <div className="buttonElement" onClick={() => setOperation("*")}>
               <OperationButton val="*"></OperationButton>
             </div>
           </div>
@@ -103,7 +103,7 @@ function App() {
             <div className="buttonElement" onClick={() => numberClick(6)}>
               <NumberButton val="6"></NumberButton>
             </div>
-            <div className="buttonElement">
+            <div className="buttonElement" onClick={() => setOperation("-")}>
               <OperationButton val="-"></OperationButton>
             </div>
           </div>
@@ -119,7 +119,7 @@ function App() {
             <div className="buttonElement" onClick={() => numberClick(3)}>
               <NumberButton val="3"></NumberButton>
             </div>
-            <div className="buttonElement">
+            <div className="buttonElement" onClick={() => setOperation("+")}>
               <OperationButton val="+"></OperationButton>
             </div>
           </div>
@@ -129,7 +129,7 @@ function App() {
               <NumberButton val="0"></NumberButton>
             </div>
            
-            <div className="buttonElement">
+            <div className="buttonElement" onClick={() => setOutput(output + 0.0)}>
               <NumberButton val="."></NumberButton>
             </div>
             <div className="buttonElement">

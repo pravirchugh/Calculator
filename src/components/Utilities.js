@@ -1,15 +1,15 @@
-function invertOutput(output){
+export function invertOutput(output){
     return (output * -1);
 }
-function reciprocalOutput(output) {
+export function reciprocalOutput(output) {
     return (1 / output);
 }
-function squareOutput(output) {
+export function squareOutput(output) {
     return (output * output);
 }
-function rootOutput(output) {
+export function rootOutput(output) {
     return (Math.sqrt(output));
 }
-function clearOutput() {
+export function clearOutput() {
     return 0;
 }
