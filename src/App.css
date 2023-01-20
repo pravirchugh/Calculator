@@ -6,6 +6,7 @@ header {
   border: 2px solid black;
   height: 49%;
   width: 100%;
+  font-size: x-large;
 }
 .buttons {
   display: flex;
@@ -21,4 +22,7 @@ header {
 }
 .doubleButtonElement {
   width: 50%;
+}
+html {
+  background-image: linear-gradient(lightblue, darkblue);
 }

@@ -2,6 +2,7 @@
   border: 2px solid black;
   background-color: rgb(35, 60, 111);
   color: white;
+  border-radius: 2px;
 }
 .numberBtn:hover {
     background-color: grey;

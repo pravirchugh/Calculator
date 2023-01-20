@@ -7,27 +7,78 @@ import './App.css';
 
 function App() {
 
-  let [output, setOutput] = useState(0);
+  let [output, setOutput] = useState("0");
   let [operation, setOperation] = useState(" "); // use the space character as "no operation selected"
+  let [firstArgument, setFirstArgument] = useState("0");
 
   function numberClick(value){
-    setOutput((output * 10) + value);
+    if((output + value)[0] == '0'){
+      setOutput((output + value).slice(1)); // checks for leading zero
+    } else {
+      setOutput(output + value);
+    }
+    
   }
 
   function backspaceOutput() {
-    let text = output.toString();
+    let text = output;
     
     if(text.length == 1 && output >= 0){
-      setOutput(0);
+      setOutput("0");
     } else if(output <= 0 && text.length == 2){
-      setOutput(0);
+      setOutput("0");
     } else {
       // delete last character
       text = text.slice(0, text.length - 1);
-      setOutput(parseFloat(text));
+      if(text[text.length - 1] == '.'){
+        text = text.slice(0, text.length - 1);
+      }
+      setOutput(text);
     }
   }
   
+  function operationClick(oper){
+    // to be implemented
+    setOperation(oper);
+
+    setFirstArgument(output);
+    
+    setOutput("0");
+    
+    // document.getElementById.value?
+  }
+
+  function evaluate() {
+    // to be implemented
+
+    if(operation == '+' || operation == "-" || operation == "*" || operation =="/"){
+      switch (operation) {
+        case "+":
+          setOutput((parseFloat(firstArgument) + parseFloat(output)).toString());
+          setFirstArgument(output);
+          break;
+
+        case "-":
+          setOutput((parseFloat(firstArgument) - parseFloat(output)).toString());
+          setFirstArgument(output);
+          break;
+
+        case "*":
+          setOutput((parseFloat(firstArgument) * parseFloat(output)).toString());
+          setFirstArgument(output);
+         break;
+
+        case "/":
+          setOutput((parseFloat(firstArgument) / parseFloat(output)).toString());
+          setFirstArgument(output);
+          break;
+      
+        default:
+          break;
+      }
+    }
+
+  }
 
   return (
     <>
@@ -37,7 +88,7 @@ function App() {
       </header>
       <body>
         <div className="outputWindow">
-          <p className="outputText" style={{textAlign: "center"}}>{output}</p>
+          <p className="outputText" id="outputParagraph" style={{textAlign: "center"}}>{output}</p>
         </div>
 
         <div className="buttons">
@@ -69,7 +120,7 @@ function App() {
             <div className="buttonElement" onClick={() => setOutput(rootOutput(output))}>
               <OperationButton val="√"></OperationButton>
             </div>
-            <div className="buttonElement" onClick={() => setOperation("/")}>
+            <div className="buttonElement" onClick={() => operationClick("/")}>
               <OperationButton val="/"></OperationButton>
             </div>
           </div>
@@ -86,7 +137,7 @@ function App() {
             <div className="buttonElement" onClick={() => numberClick(9)}>
               <NumberButton val="9"></NumberButton>
             </div>
-            <div className="buttonElement" onClick={() => setOperation("*")}>
+            <div className="buttonElement" onClick={() => operationClick("*")}>
               <OperationButton val="*"></OperationButton>
             </div>
           </div>
@@ -103,7 +154,7 @@ function App() {
             <div className="buttonElement" onClick={() => numberClick(6)}>
               <NumberButton val="6"></NumberButton>
             </div>
-            <div className="buttonElement" onClick={() => setOperation("-")}>
+            <div className="buttonElement" onClick={() => operationClick("-")}>
               <OperationButton val="-"></OperationButton>
             </div>
           </div>
@@ -119,7 +170,7 @@ function App() {
             <div className="buttonElement" onClick={() => numberClick(3)}>
               <NumberButton val="3"></NumberButton>
             </div>
-            <div className="buttonElement" onClick={() => setOperation("+")}>
+            <div className="buttonElement" onClick={() => operationClick("+")}>
               <OperationButton val="+"></OperationButton>
             </div>
           </div>
@@ -129,10 +180,10 @@ function App() {
               <NumberButton val="0"></NumberButton>
             </div>
            
-            <div className="buttonElement" onClick={() => setOutput(output + 0.0)}>
+            <div className="buttonElement" onClick={() => setOutput(output + ".")}>
               <NumberButton val="."></NumberButton>
             </div>
-            <div className="buttonElement">
+            <div className="buttonElement" onClick={() => evaluate()}>
               {/* Has twice the width of the other buttons */}
               <OperationButton val="="></OperationButton>
             </div>
