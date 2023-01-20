@@ -45,10 +45,38 @@ function App() {
     
     setOutput("0");
     
+    // document.getElementById.value?
   }
 
   function evaluate() {
     // to be implemented
+
+    if(operation == '+' || operation == "-" || operation == "*" || operation =="/"){
+      switch (operation) {
+        case "+":
+          setOutput((parseFloat(firstArgument) + parseFloat(output)).toString());
+          setFirstArgument(output);
+          break;
+
+        case "-":
+          setOutput((parseFloat(firstArgument) - parseFloat(output)).toString());
+          setFirstArgument(output);
+          break;
+
+        case "*":
+          setOutput((parseFloat(firstArgument) * parseFloat(output)).toString());
+          setFirstArgument(output);
+         break;
+
+        case "/":
+          setOutput((parseFloat(firstArgument) / parseFloat(output)).toString());
+          setFirstArgument(output);
+          break;
+      
+        default:
+          break;
+      }
+    }
 
   }
 
