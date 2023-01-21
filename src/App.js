@@ -11,7 +11,10 @@ function App() {
   let [operation, setOperation] = useState(" "); // use the space character as "no operation selected"
   let [firstArgument, setFirstArgument] = useState("0");
 
+  let [calculating, setCalculating] = useState(false);
+
   function numberClick(value){
+    setCalculating(false);
     if((output + value)[0] == '0'){
       setOutput((output + value).slice(1)); // checks for leading zero
     } else {
@@ -43,9 +46,13 @@ function App() {
 
     setFirstArgument(output);
     
+    setCalculating(true);
+
     setOutput("0");
     
     // document.getElementById.value?
+    
+
   }
 
   function evaluate() {
@@ -88,7 +95,17 @@ function App() {
       </header>
       <body>
         <div className="outputWindow">
-          <p className="outputText" id="outputParagraph" style={{textAlign: "center"}}>{output}</p>
+
+          {!calculating &&
+
+            <p className="outputText" id="outputParagraph" style={{textAlign: "center"}}>{output}</p>
+
+          }
+
+          {calculating &&
+            <p className="outputText" id="outputParagraph" style={{textAlign: "center"}}>{firstArgument}</p>
+          }
+          
         </div>
 
         <div className="buttons">
