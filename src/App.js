@@ -87,6 +87,20 @@ function App() {
 
   }
 
+  document.onkeydown = function (input) {
+    if(input.key >= "0" && input.key <= "9"){
+      numberClick(input.key);
+    } else if(input.key == "Backspace"){
+      backspaceOutput();
+    } else if(input.key == ".") {
+      setOutput(output + ".");
+    } else if(input.key == "Enter"){
+      evaluate();
+    } 
+    
+  }
+
+
   return (
     <>
       <header>
