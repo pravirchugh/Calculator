@@ -96,7 +96,10 @@ function App() {
       setOutput(output + ".");
     } else if(input.key == "Enter"){
       evaluate();
-    } 
+    } else if(input.key == "c"){
+      setOutput(clearOutput());
+    }
+    
     
   }
 
