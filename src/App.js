@@ -148,7 +148,7 @@ function App() {
               <OperationButton val="+/-"></OperationButton>
             </div>
            
-            <div className="buttonElement" onClick={percentClick()}>
+            <div className="buttonElement" onClick={() => percentClick()}>
               <OperationButton val="%"></OperationButton>
             </div>
             <div className="buttonElement" onClick={() => setOutput(clearOutput())}>
