@@ -3,7 +3,12 @@
     background-color: rgb(20, 40, 80);
     color: white;
     border-radius: 2px;
+    height: 11vh;
 }
 .operationBtn:hover {
     background-color: grey;
+}
+
+p {
+    font-size: larger;
 }

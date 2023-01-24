@@ -6,7 +6,7 @@ function OperationButton(props){
         <>
             <div className="operationBtn">
 
-                <p style={{textAlign: "center"}}>{props.val}</p>
+                <p style={{textAlign: "center", lineHeight: "5.5vh"}}>{props.val}</p>
 
             </div>
         </>

@@ -3,7 +3,11 @@
   background-color: rgb(35, 60, 111);
   color: white;
   border-radius: 2px;
+  height: 11vh;
 }
 .numberBtn:hover {
     background-color: grey;
+}
+p {
+  font-size: larger;
 }
