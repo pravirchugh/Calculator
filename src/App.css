@@ -29,3 +29,9 @@ html {
 header, .outputWindow {
   color: white;
 }
+.outputWindow {
+  border: 1px solid white;
+  width: 99%;
+  margin-left: 0.5%;
+  margin-right: 0.5%;
+}
