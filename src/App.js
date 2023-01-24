@@ -13,8 +13,6 @@ function App() {
 
   let [calculating, setCalculating] = useState(false);
 
-  let [operationInProgress, setOperationInProgress] = useState(false);
-
   function numberClick(value){
     setCalculating(false);
     if((output + value)[0] == '0'){
@@ -50,8 +48,6 @@ function App() {
     
     setCalculating(true);
 
-    setOperationInProgress(true);
-
     setOutput("0");
     
     // document.getElementById.value?
@@ -61,8 +57,6 @@ function App() {
 
   function evaluate() {
     // to be implemented
-
-    setOperationInProgress(false);
 
     if(operation == '+' || operation == "-" || operation == "*" || operation =="/"){
       switch (operation) {
@@ -94,13 +88,7 @@ function App() {
   }
 
   function percentClick() {
-    if(operationInProgress) {
-      // change the second argument to be divided by 100
-      setOutput(output / 100);
-    } else {
-      // we can just divide the current value by 100
-      setOutput(output / 100);
-    }
+    setOutput(output / 100);
   }
 
   document.onkeydown = function (input) {
