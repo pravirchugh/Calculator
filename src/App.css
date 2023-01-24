@@ -24,5 +24,8 @@ header {
   width: 50%;
 }
 html {
-  background-image: linear-gradient(lightblue, darkblue);
+  background-color: rgb(26, 30, 49)
+}
+header, .outputWindow {
+  color: white;
 }
