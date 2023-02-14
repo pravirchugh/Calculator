@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { invertOutput, rootOutput, squareOutput, reciprocalOutput, clearOutput } from './components/Utilities.js';
+import { invertOutput, rootOutput, squareOutput, reciprocalOutput, clearOutput, isOperation } from './components/Utilities.js';
 
 import NumberButton from './components/NumberButton';
 import OperationButton from './components/OperationButton';
@@ -102,6 +102,8 @@ function App() {
       evaluate();
     } else if(input.key == "c"){
       setOutput(clearOutput());
+    } else if(isOperation(input.key)){
+      operationClick(input.key);
     }
     
     

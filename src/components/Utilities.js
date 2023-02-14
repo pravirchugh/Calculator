@@ -23,3 +23,16 @@ export function rootOutput(output) {
 export function clearOutput() {
     return "0";
 }
+export function isOperation(testOper) {
+    switch (testOper) {
+        case "*":
+        case "+":
+        case "/":
+        case "-":
+            return true;
+           
+    
+        default:
+            return false;
+    }
+}
